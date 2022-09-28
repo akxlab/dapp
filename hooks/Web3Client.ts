@@ -1,5 +1,6 @@
 import { useEffect, useReducer, useCallback } from 'react'
 import { ethers } from 'ethers'
+import {toast} from "react-toastify"
 
 import {
   Web3ProviderState,
@@ -48,6 +49,7 @@ type Web3Client = Web3ProviderState & {
           const address = await signer.getAddress()
           const network = await web3Provider.getNetwork()
   
+          toast.success('Connected to AKX3 Ecosystem');
           dispatch({
             type: 'SET_WEB3_PROVIDER',
             provider,
@@ -69,6 +71,7 @@ type Web3Client = Web3ProviderState & {
         if (provider?.disconnect && typeof provider.disconnect === 'function') {
           await provider.disconnect()
         }
+        toast.success('Disonnected from AKX3 Ecosystem');
         dispatch({
           type: 'RESET_WEB3_PROVIDER',
         } as Web3Action)
@@ -88,6 +91,7 @@ type Web3Client = Web3ProviderState & {
     useEffect(() => {
       if (provider?.on) {
         const handleAccountsChanged = (accounts: string[]) => {
+            toast.info('Changed Account for AKX3 Ecosystem')
           dispatch({
             type: 'SET_ADDRESS',
             address: accounts[0],
