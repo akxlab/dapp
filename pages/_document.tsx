@@ -34,12 +34,12 @@ let prefixer: any;
 let cleanCSS: any;
 if (process.env.NODE_ENV === 'production') {
   /* eslint-disable global-require */
-  const postcss = require('postcss');
-  const autoprefixer = require('autoprefixer');
+ // const postcss = require('postcss');
+  //const autoprefixer = require('autoprefixer');
   const CleanCSS = require('clean-css');
   /* eslint-enable global-require */
 
-  prefixer = postcss([autoprefixer]);
+  //prefixer = postcss([autoprefixer]);
   cleanCSS = new CleanCSS();
 }
 // it's compatible with static-site generation (SSG).

@@ -1,8 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head';
 
-
-import { ToastContainer } from 'react-toastify'
 import type { AppProps } from 'next/app'
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
