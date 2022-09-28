@@ -1,8 +1,12 @@
 import React from 'react'
+import {useEffect, useState} from 'react'
 import { useWeb3 } from '../hooks/Web3Client'
 
 export function Web3Address() {
   const { address } = useWeb3()
+  const [addr, setAddr] = useState("");
+  // @ts-ignore
+  useEffect(() => setAddr(address));
 
   return (
     <div className="flex items-center justify-center">
@@ -12,7 +16,7 @@ export function Web3Address() {
             Address
           </span>
           <span className="md:text-md truncate pl-4 text-right text-sm  font-light lg:text-lg">
-            {address}
+            {addr}
           </span>
         </div>
       </div>
